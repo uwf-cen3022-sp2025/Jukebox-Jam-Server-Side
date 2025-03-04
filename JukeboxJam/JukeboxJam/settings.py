@@ -1,19 +1,19 @@
 import os
-from pathlib import Path
-from dotenv import load_dotenv
 
-load_dotenv()
+from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'your_default_secret_key')
+SECRET_KEY = 'django-insecure-*4#$is2lw--flcr#fqlzxvmre^t48ocsb8ea8887^9&m*#e+ki'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DJANGO_DEBUG', 'True') == 'True'
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']  # Removed potentially empty ALLOWED_HOST from env. Add other hosts as needed.
+ALLOWED_HOSTS = []
+
 
 # Application definition
 
@@ -24,7 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Add your apps here
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -37,7 +37,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'JukeboxJam.urls'  # Corrected: Your project name is JukeboxJam
+ROOT_URLCONF = 'JukeboxJam.urls'
 
 TEMPLATES = [
     {
@@ -55,10 +55,12 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'JukeboxJam.wsgi.application'  # Corrected: Your project name is JukeboxJam
+WSGI_APPLICATION = 'JukeboxJam.wsgi.application'
+
 
 # Database
-# https://docs.djangoproject.com/en/X.X/ref/settings/#databases
+# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
+
 
 DATABASES = {
     'default': {
@@ -74,8 +76,9 @@ DATABASES = {
     }
 }
 
+
 # Password validation
-# https://docs.djangoproject.com/en/X.X/ref/settings/#auth-password-validators
+# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -92,8 +95,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 # Internationalization
-# https://docs.djangoproject.com/en/X.X/topics/i18n/
+# https://docs.djangoproject.com/en/5.1/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
@@ -103,21 +107,13 @@ USE_I18N = True
 
 USE_TZ = True
 
+
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/X.X/howto/static-files/
+# https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/X.X/ref/settings/#default-auto-field
+# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# You can remove these print statements if you wish. They are just for debugging purposes.
-print("DJANGO_SECRET_KEY:", os.environ.get('DJANGO_SECRET_KEY'))
-print("DJANGO_DEBUG:", os.environ.get('DJANGO_DEBUG'))
-print("MYSQL_DATABASE:", os.environ.get('MYSQL_DATABASE'))
-print("MYSQL_USER:", os.environ.get('MYSQL_USER'))
-print("MYSQL_PASSWORD:", os.environ.get('MYSQL_PASSWORD'))
-print("MYSQL_HOST:", os.environ.get('MYSQL_HOST'))
-print("MYSQL_PORT:", os.environ.get('MYSQL_PORT'))
