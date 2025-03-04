@@ -1,0 +1,23 @@
+# Virtual environments
+myenv/
+
+# Compiled Python files
+*.pyc
+
+# IDE configurations
+.idea/
+.vscode/
+
+# Operating system files
+.DS_Store
+
+# Database files (if applicable)
+*.sqlite
+data/ # Or the directory where your MySQL data is stored
+
+# Configuration files with sensitive information
+.env
+config.local.py # Or any other file containing sensitive credentials
+
+# Log files
+*.log
