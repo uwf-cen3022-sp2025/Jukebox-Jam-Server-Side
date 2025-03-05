@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-#Defined all databases models
+#Defined databases models 
 
 #playlists
 class Playlist(models.Model):
@@ -23,4 +23,4 @@ class Song(models.Model):
     def __str__(self):
         return f'{self.title} by {self.artist}'
 
-
+#Spotify may go somewhere down here once we understand api keys and get it set up.
