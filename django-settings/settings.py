@@ -6,6 +6,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'authentication',
+    'music',
 ]
 
 AUTH_USER_MODEL = 'authentication.CustomUser'
