@@ -1,26 +1,24 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.conf import settings  # Import settings
 
-#Defined all databases models
+# Defined all database models
 
-#playlists
+# playlists
 class Playlist(models.Model):
     name = models.CharField(max_length=255)
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  # Use settings.AUTH_USER_MODEL
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name
 
-#songs
+# songs
 class Song(models.Model):
     title = models.CharField(max_length=255)
     artist = models.CharField(max_length=255)
     playlist = models.ForeignKey(
-        Playlist, related_name='songs', on_delete=models.CASCADE
+        'Playlist', related_name='songs', on_delete=models.CASCADE  # corrected string quoting.
     )
 
     def __str__(self):
         return f'{self.title} by {self.artist}'
-
-
